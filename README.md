@@ -93,8 +93,8 @@ I found the naming convention to be super useful, especially because it integrat
   background-color: black;
 }
 
-// SASS
 
+// SASS
 .main-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -136,6 +136,6 @@ I definitely want to get better using BEM and SASS since I find them super usefu
 
 ## Author
 
-- Website - [My GitHub](https://github.com/Bry-cmd)
+- My GitHub - [GitHub Profile](https://github.com/Bry-cmd)
 - Frontend Mentor - [@Bry-cmd](https://www.frontendmentor.io/profile/Bry-cmd)
 - LinkedIn - [Bryan Sanchez](https://www.linkedin.com/in/bryan-sanchez-b316b7203/)
