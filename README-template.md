@@ -4,17 +4,18 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Frontend Mentor - Sunnyside agency landing page solution](#frontend-mentor---sunnyside-agency-landing-page-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -29,20 +30,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/Bry-cmd/sunnyside-agency-landing-page-main)
+- Live Site URL: [GitHub Pages](https://bry-cmd.github.io/sunnyside-agency-landing-page-main/)
 
 ## My process
 
@@ -50,64 +43,99 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- SASS
+- Vanilla JS
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+I was initially going to use this challenge as an exercise to get me started with Bootstrap. However, when I got started, I realized that I had to change the templates provided by Bootstrap so much that I found it simpler to just start from scratch. So, I decided to use this challenge to practice SASS and the BEM (Block Element Modifier) CSS naming convention. Essentially, in a nested layout, the parent (or block) would be given a simple descriptive name. The names of the children (or element) will be based off of the name of the block. An example of which is shown below.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="main-content">  <!-- BLOCK -->
+  <div class="main-content__row"> <!-- ELEMENT [block__element] -->
+    <div class="main-content__cell"> <!-- ELEMENT [block__element] -->
+    </div>
+  </div>
+</div>
 ```
 
+When you want to change the appearance of a block or element, you add a modifier class.
+
+```html
+<div class="main-content main-content--red">  <!-- MODIFIER [block--modifier] -->
+  <div class="main-content__row main-content__row--black"> <!-- MODIFIER [element--modifier] -->
+    <div class="main-content__cell">
+    </div>
+  </div>
+</div>
+```
+
+I found the naming convention to be super useful, especially because it integrates extremely well with SASS, which allows nesting.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+// Regular CSS
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.main-content--red {
+  background-color: red;
+}
+
+.main-content__row {
+  width: 80%;
+  margin: auto;
+}
+
+.main-content__row--black {
+  background-color: black;
+}
+
+// SASS
+
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &--red {
+    background-color: red;
+  }
+
+  &__row {
+    width: 80%;
+    margin: auto;
+
+    &--black {
+      background-color: black;
+    }
+  }
 }
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+I'm not entirely sure if this is the proper way to use SASS or BEM, but I will definitely be using them in future projects because they're really convenient, so I'll do my best to get better. I also learned 
+
+Lastly, I learned that about the justify-self property in CSS, which helps align an object along its container's axis. This was super useful in helping my layout, especially with the navbar and popup menu since, before, I'd just use margins to try to get the element as close to the end as possible without it overflowing.
+
+```css
+.triangle {
+  justify-self: end; //Aligns element with class "triangle" to the end of its container's axis
+}
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I definitely want to get better using BEM and SASS since I find them super useful in organizing my code. I'm not entirely sure how to utilize BEM yet because I don't know how to use modifier classes since some of my CSS declarations for the block or element are so short that I find it unnecessary to create a separate class just for them. I definitely want to improve my JS next, since that will help make my websites more dynamic and interactive (and currently, among HTML, CSS, and JS, I know JS the least). I want to get better on how to code with JS and also in organizing my JS code, since my JS scripts are usually so short that they don't really need organization as of the moment.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [CSS Tricks](https://css-tricks.com/) - This site is really good for picking up on useful CSS techniques I use in my challenges.
+- [BEM Naming Convention](http://getbem.com/naming/) - This article is a really good read since it does a really good job in explaining what the BEM Naming Convention is. It's also a short read.
+- [w3schools](https://www.w3schools.com/) - A really good website for searching up HTML tags or CSS operators which I forgot how to use or want to pick up quickly.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [My GitHub](https://github.com/Bry-cmd)
+- Frontend Mentor - [@Bry-cmd](https://www.frontendmentor.io/profile/Bry-cmd)
+- LinkedIn - [Bryan Sanchez](https://www.linkedin.com/in/bryan-sanchez-b316b7203/)
