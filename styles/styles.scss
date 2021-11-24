@@ -2,12 +2,6 @@
 @use 'colors';
 @use 'breakpoints';
 
-$breakpoints: ('phone': 368px,
-               'l_phone': 480px,
-               'tablet': 768px,
-               'desktop': 1024px,
-               'l_desktop': 1400px) !default;
-
 :root {
     font-size: 15.9px;
 }
